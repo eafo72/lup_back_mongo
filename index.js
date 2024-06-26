@@ -3,6 +3,7 @@ const app = express()
 
 const userRoutes = require('./routes/users')
 const clientRoutes = require('./routes/clients')
+const serviceRoutes = require('./routes/services')
 const userTypesRoutes = require('./routes/usertypes')
 const seoRoutes = require('./routes/seo')
 const companyRoutes = require('./routes/company')
@@ -21,6 +22,7 @@ app.use(express.urlencoded({limit: '25mb'})); //sirve para recibir base64 largos
 //3. Rutas
 app.use('/usuario', userRoutes)
 app.use('/cliente', clientRoutes)
+app.use('/servicio', serviceRoutes)
 app.use('/tipos_usuario', userTypesRoutes)
 app.use('/seo', seoRoutes)
 app.use('/empresa', companyRoutes)
