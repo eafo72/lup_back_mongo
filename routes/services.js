@@ -70,7 +70,7 @@ app.post('/crear', async (req, res) => {
 // ACTUALIZAR
 //app.put('/actualizar', auth, async (req, res) => {
 app.put('/actualizar', async (req, res) => {
-	const { id, nombre, descripcion, correo } = req.body
+	const { id, nombre, descripcion, precio } = req.body
 	try {
 
 		const ifExist = await Servicio.find( { nombre: nombre, _id: { $ne: id } } )
