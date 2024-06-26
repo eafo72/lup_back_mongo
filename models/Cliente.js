@@ -4,12 +4,23 @@ const mongoose = require('mongoose')
 // 2. SCHEMA
 const clientSchema = mongoose.Schema(
 	{
-		telefono: {
-			type: String
-		},
 		nombre: {
-			type: String
-		}
+			type: String,
+			required: [true,'El nombre es obligatorio']
+		},
+		correo: {
+			type: String,
+			required: [true,'El correo es obligatorio'],
+			match: [/\S+@\S+\.\S+/, 'Correo inválido' ],
+		},
+		direccion: {
+			type: String,
+			required: false,
+		},
+		telefono: {
+			type: String,
+			required: false,
+		},
 	},
 	{
 		timestamps: true, 
