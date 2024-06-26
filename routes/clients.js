@@ -10,7 +10,7 @@ const mailer = require('../controller/mailController')
 app.get('/obtener', async (req, res) => {
 	try {
 		const clientes = await Cliente.find({})
-        res.json({cleintes})
+        res.json({clientes})
 
 	} catch (error) {
 		res.status(500).json({ msg: 'Hubo un error obteniendo los datos' })
