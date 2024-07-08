@@ -33,7 +33,17 @@ app.get('/single/:id', async (req, res) => {
 
 // CREAR UN cliente
 app.post('/crear', async (req, res) => {
-	const { nombre, correo, direccion, telefono } = req.body 
+	const { 
+		nombre,
+        atencion,
+        correo,
+        ruc,
+        diasDeEntrega,
+        diasDeCredito,
+        formasPago,
+        direccion,
+        telefono
+	 } = req.body 
 	
 	try {
 
@@ -50,7 +60,12 @@ app.post('/crear', async (req, res) => {
 					
 			const respuestaDB = await Cliente.create({
 				nombre,
+				atencion,
 				correo,
+				ruc,
+				diasDeEntrega,
+				diasDeCredito,
+				formasPago,
 				direccion,
 				telefono
 			})
@@ -71,7 +86,18 @@ app.post('/crear', async (req, res) => {
 // ACTUALIZAR
 //app.put('/actualizar', auth, async (req, res) => {
 app.put('/actualizar', async (req, res) => {
-	const { id, nombre, correo, direccion, telefono } = req.body
+	const { 
+		id,
+		nombre,
+        atencion,
+        correo,
+        ruc,
+        diasDeEntrega,
+        diasDeCredito,
+        formasPago,
+        direccion,
+        telefono
+		} = req.body
 	try {
 
 		const ifExist = await Cliente.find( { correo: correo, _id: { $ne: id } } )
@@ -84,7 +110,17 @@ app.put('/actualizar', async (req, res) => {
 
 		}else{
 
-			const updateCliente = await Cliente.findByIdAndUpdate(id,{nombre, correo, direccion, telefono},{new:true})
+			const updateCliente = await Cliente.findByIdAndUpdate(id,{
+				nombre,
+				atencion,
+				correo,
+				ruc,
+				diasDeEntrega,
+				diasDeCredito,
+				formasPago,
+				direccion,
+				telefono
+			},{new:true})
         	res.json({updateCliente})
 		
 		}
