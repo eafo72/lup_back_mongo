@@ -33,15 +33,19 @@ const userSchema = mongoose.Schema(
 			type: String,
 			required: false,
 		},
-		estrellas: {
+		codigo: {
 			type: String,
 			required: false,
 		},
-		cumpleanios: {
+		cargo: {
 			type: String,
 			required: false,
 		},
-		invitado: {
+		alcance: {
+			type: String,
+			required: false,
+		},
+		descuento_autorizado: {
 			type: String,
 			required: false,
 		},

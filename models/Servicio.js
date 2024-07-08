@@ -16,6 +16,10 @@ const serviceSchema = mongoose.Schema(
 			type: Number,
 			required: false,
 		},
+		imagen: {
+			type: String,
+			required: false,
+		}
 	},
 	{
 		timestamps: true, 

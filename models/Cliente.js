@@ -8,10 +8,30 @@ const clientSchema = mongoose.Schema(
 			type: String,
 			required: [true,'El nombre es obligatorio']
 		},
+		atencion:{
+			type: String,
+			required: false,
+		},
 		correo: {
 			type: String,
 			required: [true,'El correo es obligatorio'],
 			match: [/\S+@\S+\.\S+/, 'Correo inválido' ],
+		},
+		ruc:{
+			type: String,
+			required: false,
+		},
+		diasDeEntrega:{
+			type: String,
+			required: false,
+		},
+		diasDeCredito:{
+			type: String,
+			required: false,
+		},
+		formasPago:{
+			type: String,
+			required: false,
 		},
 		direccion: {
 			type: String,
