@@ -45,7 +45,7 @@ const userSchema = mongoose.Schema(
 			type: String,
 			required: false,
 		},
-		descuento_autorizado: {
+		descuentoAutorizado: {
 			type: String,
 			required: false,
 		},
