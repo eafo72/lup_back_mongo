@@ -150,7 +150,17 @@ app.get('/verificar', auth, async (req, res) => {
 // ACTUALIZAR
 //app.put('/actualizar', auth, async (req, res) => {
 app.put('/actualizar', async (req, res) => {
-	const { id, nombre, tipo, correo, direccion, telefono, cumpleanios } = req.body
+	const { id,
+		nombre, 
+		tipo,
+		correo,
+		direccion, 
+		telefono, 
+		codigo,
+		cargo,
+		alcance,
+		descuentoAutorizado
+    } = req.body
 	try {
 
 		const ifExist = await Usuario.find( { correo: correo, _id: { $ne: id } } )
