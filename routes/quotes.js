@@ -8,7 +8,11 @@ app.get("/obtener", async (req, res) => {
     const cotizaciones = await Cotizaciones.find(
       {},
       {
-        id_cliente: 1,
+        cliente: 1,
+        atencion: 1,
+        diasDeEntrega: 1,
+        diasDeCredito: 1,
+        formasPago: 1,
         vigencia: 1,
         descripcion: 1,
       }
@@ -40,11 +44,23 @@ app.get("/single/:id", async (req, res) => {
 
 //CREAR
 app.post("/crear", async (req, res) => {
-  const { id_cliente, vigencia, descripcion } = req.body;
+  const {
+    cliente,
+    atencion,
+    diasDeEntrega,
+    diasDeCredito,
+    formasPago,
+    vigencia,
+    descripcion,
+  } = req.body;
 
   try {
     const respuestaDB = await Cotizaciones.create({
-      id_cliente,
+      cliente,
+      atencion,
+      diasDeEntrega,
+      diasDeCredito,
+      formasPago,
       vigencia,
       descripcion,
     });
@@ -59,11 +75,25 @@ app.post("/crear", async (req, res) => {
 
 // ACTUALIZAR
 app.put("/actualizar", async (req, res) => {
-  const { id, vigencia, descripcion } = req.body;
+  const {
+    id,
+    cliente,
+    atencion,
+    diasDeEntrega,
+    diasDeCredito,
+    formasPago,
+    vigencia,
+    descripcion,
+  } = req.body;
   try {
     const updateCotizacion = await Cotizaciones.findByIdAndUpdate(
       id,
       {
+        cliente,
+        atencion,
+        diasDeEntrega,
+        diasDeCredito,
+        formasPago,
         vigencia,
         descripcion,
       },

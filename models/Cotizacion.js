@@ -4,13 +4,29 @@ const mongoose = require('mongoose')
 // 2. SCHEMA
 const quoteSchema = mongoose.Schema(
 	{
-		id_cliente: {
-			type: mongoose.Schema.Types.ObjectId,
+		cliente: {
+			type: String,
+			required: true
+		},
+		atencion: {
+			type: String,
+			required: true
+		},
+		diasDeEntrega : {
+			type: String,
+			required: true
+		},
+		diasDeCredito : {
+			type: String,
+			required: true
+		},
+		formasPago :{
+			type: String,
 			required: true
 		},
 		vigencia: {
 			type: String,
-			required: false
+			required: true
 		},
 		descripcion:{
 			type:Array
