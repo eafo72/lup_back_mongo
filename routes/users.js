@@ -34,7 +34,18 @@ app.get('/single/:id', async (req, res) => {
 
 // CREAR UN USUARIO JWT
 app.post('/crear', async (req, res) => {
-	const { nombre, tipo, correo, password, direccion, telefono, cumpleanios } = req.body 
+	const { 
+		nombre,
+		tipo,
+		correo,
+		password,
+		direccion,
+		telefono,
+		codigo,
+		cargo,
+		alcance,
+		descuentoAutorizado
+		} = req.body 
 	
 	try {
 
@@ -58,7 +69,10 @@ app.post('/crear', async (req, res) => {
 				password: hashedPassword,
 				direccion,
 				telefono,
-				cumpleanios
+				codigo,
+				cargo,
+				alcance,
+				descuentoAutorizado
 			})
 			const payload = {user:{id:respuestaDB._id}}
 			
@@ -149,7 +163,17 @@ app.put('/actualizar', async (req, res) => {
 
 		}else{
 
-			const updateUsuario = await Usuario.findByIdAndUpdate(id,{nombre, tipo, correo, direccion, telefono, cumpleanios},{new:true})
+			const updateUsuario = await Usuario.findByIdAndUpdate(id,{
+				nombre,
+				tipo,
+				correo,
+				direccion,
+				telefono,
+				codigo,
+				cargo,
+				alcance,
+				descuentoAutorizado
+				},{new:true})
         	res.json({updateUsuario})
 		
 		}
