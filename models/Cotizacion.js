@@ -2,10 +2,10 @@
 const mongoose = require('mongoose')
 
 // 2. SCHEMA
-const clientSchema = mongoose.Schema(
+const quoteSchema = mongoose.Schema(
 	{
 		id_cliente: {
-			type: Number,
+			type: mongoose.Schema.Types.ObjectId,
 			required: true
 		},
 		vigencia: {
@@ -22,7 +22,7 @@ const clientSchema = mongoose.Schema(
 )
 
 // 3. MODELO
-const Cliente = mongoose.model('Cliente', clientSchema)
+const Cotizacion = mongoose.model('Cotizacion', quoteSchema)
 
 // 4. EXPORTACIÓN
-module.exports = Cliente
+module.exports = Cotizacion
