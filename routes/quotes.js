@@ -120,3 +120,5 @@ app.post("/borrar", async (req, res) => {
     });
   }
 });
+
+module.exports = app;
