@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express.Router()
 const Servicio = require('../models/Servicio')  
+let FormData = require("form-data");
+const fetch = require("node-fetch");
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const auth = require('../middlewares/authorization')
@@ -33,7 +35,38 @@ app.get('/single/:id', async (req, res) => {
 
 // CREAR 
 app.post('/crear', async (req, res) => {
-	const { nombre, descripcion, precio } = req.body 
+	const { 
+		nombre,
+		descripcion,
+		name,
+    	imgbase64,
+		precio } = req.body 
+
+		let thumb = `${process.env.URLFRONT}/servicios/${name}`;
+	  
+		let formdata = new FormData();
+		formdata.append("thumb", imgbase64);
+		formdata.append("nombre_thumb", name);
+	  
+		let response = await fetch(
+		  `${process.env.URLFRONT}/servicios/api_services_base64.php`,
+		  {
+			method: "POST",
+			body: formdata,
+		  }
+		);
+	  
+		let result = await response.json();
+	  
+		if (result.error) {
+		  return res
+			.status(500)
+			.json({
+			  error: true,
+			  msg: "No se agregó la foto, inténtalo nuevamente",
+			  details: result.error,
+			});
+		}	
 	
 	try {
 
@@ -51,7 +84,8 @@ app.post('/crear', async (req, res) => {
 			const respuestaDB = await Servicio.create({
 				nombre,
 				descripcion,
-				precio
+				precio,
+				imagen: thumb,
 			})
 
 			
