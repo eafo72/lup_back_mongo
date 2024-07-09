@@ -7,6 +7,7 @@ const serviceRoutes = require('./routes/services')
 const userTypesRoutes = require('./routes/usertypes')
 const seoRoutes = require('./routes/seo')
 const companyRoutes = require('./routes/company')
+const quoteRoutes = require('./routes/quotes')
 
 const cors = require('cors')
 
@@ -26,6 +27,7 @@ app.use('/servicio', serviceRoutes)
 app.use('/tipos_usuario', userTypesRoutes)
 app.use('/seo', seoRoutes)
 app.use('/empresa', companyRoutes)
+app.use('/cotizacion', quoteRoutes)
 
 
 app.get('/', (req, res) => res.send('LUP API'))
