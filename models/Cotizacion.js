@@ -10,19 +10,19 @@ const quoteSchema = mongoose.Schema(
 		},
 		atencion: {
 			type: String,
-			required: true
+			required: false
 		},
 		diasDeEntrega : {
 			type: String,
-			required: true
+			required: false
 		},
 		diasDeCredito : {
 			type: String,
-			required: true
+			required: false
 		},
 		formasPago :{
 			type: String,
-			required: true
+			required: false
 		},
 		vigencia: {
 			type: String,
