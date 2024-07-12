@@ -29,7 +29,28 @@ const quoteSchema = mongoose.Schema(
 			required: true
 		},
 		descripcion:{
-			type:Array
+			type:Array,
+			required: false
+		},
+		subtotal:{
+			type:Number,
+			required: false
+		},
+		porcentaje:{
+			type:Number,
+			required: false
+		},
+		descuento:{
+			type:Number,
+			required: false
+		},
+		iva:{
+			type:Number,
+			required: false
+		},
+		total:{
+			type:Number,
+			required: false
 		}
 	},
 	{

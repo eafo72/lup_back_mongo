@@ -15,6 +15,11 @@ app.get("/obtener", async (req, res) => {
         formasPago: 1,
         vigencia: 1,
         descripcion: 1,
+        subtotal:1,
+        porcentaje:1,
+        descuento:1,
+        iva:1,
+        total:1
       }
     );
 
@@ -52,6 +57,11 @@ app.post("/crear", async (req, res) => {
     formasPago,
     vigencia,
     descripcion,
+    subtotal,
+    porcentaje,
+    descuento,
+    iva,
+    total
   } = req.body;
 
   try {
@@ -63,6 +73,11 @@ app.post("/crear", async (req, res) => {
       formasPago,
       vigencia,
       descripcion,
+      subtotal,
+      porcentaje,
+      descuento,
+      iva,
+      total
     });
 
     res.json({ respuestaDB });
@@ -84,6 +99,11 @@ app.put("/actualizar", async (req, res) => {
     formasPago,
     vigencia,
     descripcion,
+    subtotal,
+    porcentaje,
+    descuento,
+    iva,
+    total
   } = req.body;
   try {
     const updateCotizacion = await Cotizaciones.findByIdAndUpdate(
@@ -96,6 +116,11 @@ app.put("/actualizar", async (req, res) => {
         formasPago,
         vigencia,
         descripcion,
+        subtotal,
+        porcentaje,
+        descuento,
+        iva,
+        total
       },
       { new: true }
     );
