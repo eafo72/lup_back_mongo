@@ -8,6 +8,14 @@ const quoteSchema = mongoose.Schema(
 			type: String,
 			required: true
 		},
+		proformaNum: {
+			type: String,
+			required: true
+		},
+		proyecto: {
+			type: String,
+			required: true
+		},
 		atencion: {
 			type: String,
 			required: false
@@ -30,6 +38,10 @@ const quoteSchema = mongoose.Schema(
 		},
 		descripcion:{
 			type:Array,
+			required: false
+		},
+		observaciones :{
+			type: String,
 			required: false
 		},
 		subtotal:{
